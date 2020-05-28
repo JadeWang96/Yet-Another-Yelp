@@ -5,7 +5,7 @@ A full stack project using ExpressJS and NodeJS framework, as well as MongoDB.
 ## Tech Stack
 - ExpressJS
 - NodeJS
-- PassportJS
+- PassportJS (for authentication)
 - MongoDB
 - Docker
 
@@ -25,8 +25,8 @@ npm install
 ```
 
 ### Database Setup
+Get the IP address of container
 ```shell
-// Get the IP address of container
 docker inspect mongoDB
 ```
 ```javascript
@@ -51,8 +51,26 @@ nodemon
 
 ## RESTful Routes
 ```text
-name    url         verb            desc.
-====================================================
-```
+name                        url                                         HTTP Verb
+================================================================================
+Landing Page                /                                           GET
 
-## Authentication
+Index Display               /campgrounds                                GET
+Campgrounds Create          /campgrounds                                POST
+Campgrounds New             /campgrounds/new                            GET
+Campgrounds Show            /campgrounds/:id                            GET
+Campgrounds Edit            /campgrounds/:id/edit                       PUT
+Campgrounds Destroy         /campgrounds/:id                            DELETE    
+
+Auth Register Display       /register                                   GET
+Auth Register Handle        /register                                   POST
+Auth Login Display          /login                                      GET
+Auth Login Handle           /login                                      POST
+Auth Logout                 /logout                                     GET
+
+Comment New                 /campgrounds/:id/comments/new               GET
+Comment Create              /campgrounds/:id/comments                   POST    
+Comment Edit                /campgrounds/:id/comments/:comment_id/edit  GET
+Comment Update              /campgrounds/:id/comments/:comment_id       PUT
+Comment Destroy             /campgrounds/:id/comments/:comment_id       DELETE
+```

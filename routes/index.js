@@ -5,7 +5,7 @@ var localStrategy = require("passport-local");
 var User = require("../models/user");
 // Landing page
 router.get("/", function (req, res) {
-    res.render("landing");
+    res.render("landing", {currentUser: req.user });
 });
 
 // ==============================================================================================

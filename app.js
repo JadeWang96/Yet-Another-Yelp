@@ -9,6 +9,7 @@ var Comment = require("./models/comment");
 var seedDB = require("./seeds");
 var passport = require("passport");
 var localStrategy = require("passport-local");
+var methodOverride = require("method-override");
 var User = require("./models/user");
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
@@ -23,6 +24,7 @@ app.use(function (req, res, next) {
     res.locals.currentUser = req.user;
     next();
 });
+app.use(methodOverride("_method"));
 // seedDB();
 // ==============================================================================================
 // Passport Configuration
